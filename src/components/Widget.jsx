@@ -8,6 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import tailwindStyles from "../index.css?inline";
 
 export const Widget = () => {
   const [rating, setRating] = useState(3);
@@ -31,6 +32,8 @@ export const Widget = () => {
   };
 
   return (
+    <>
+    <style>{tailwindStyles}</style>
     <div className=" widget fixed bottom-8 right-8 z-index-50 ">
       <Popover>
         <PopoverTrigger asChild>
@@ -39,7 +42,9 @@ export const Widget = () => {
             Feedback
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="widget w-full max-w-md rounded-lg p-4 shadow-lg bg-card mr-4">
+        
+        <PopoverContent className=" widget w-full max-w-md rounded-lg p-4 shadow-lg bg-card mr-4">
+    <style>{tailwindStyles}</style>
           {submitted ? (
             <div>
               <h3 className="text-lg font-bold">
@@ -94,13 +99,14 @@ export const Widget = () => {
         </PopoverContent>
       </Popover>
     </div>
+</>
   );
 };
 
 function StarIcons(props) {
   return (
     <svg
-      {...props}
+    {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
