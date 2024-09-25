@@ -1,6 +1,9 @@
 import { defineConfig } from "drizzle-kit";
+import {config} from "dotenv"
+
+config({path: ".env.local"})
 export default defineConfig({
-  schema: "./db/schema.ts",
+  schema: "./src/db/schema.ts",
   dialect: "postgresql",
   migrations: {
     prefix: "supabase",
