@@ -2,7 +2,6 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -12,14 +11,19 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Plus } from 'lucide-react';
+import createProject from "@/actions/createProject";
+import SubmitButton from "@/components/submit-proj-btn";
 
+import { Plus } from "lucide-react";
 
 const NewProjBtn = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button> <Plus className="h-4 w-4 mr-1"/> Create Project</Button>
+        <Button>
+          {" "}
+          <Plus className="h-4 w-4 mr-1" /> Create Project
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -28,23 +32,25 @@ const NewProjBtn = () => {
             Create a new Project to get started
           </DialogDescription>
         </DialogHeader>
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" action={createProject}>
           <div className="grid sm:grid-cols-2 gap-4">
-              <div className="flex flex-col gap-2">
-                  <Label htmlFor="name">Project Name</Label>
-                  <Input id="name" type="text" placeholder="Project Name" />
-              </div>
-              <div className="flex flex-col gap-2"> 
-                  <Label htmlFor="url">URL</Label>
-                  <Input id="url" type="text" placeholder="https://example.com/" />
-              </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="name">Project Name</Label>
+              <Input name="name" id="name" type="text" placeholder="Project Name" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="url">URL</Label>
+              <Input name="url" id="url" type="text" placeholder="https://example.com/" />
+            </div>
           </div>
           <div className="flex flex-col gap-2">
-              <Label htmlFor="description">Description</Label>
-              <Textarea id="description" placeholder="Description(Optional)" />
+            <Label htmlFor="description">Description</Label>
+            <Textarea name="description" id="description" placeholder="Description(Optional)" />
           </div>
-          <DialogFooter> <Button type="submit">Create Project</Button></DialogFooter>
-         
+        
+           
+         <SubmitButton />
+      
         </form>
       </DialogContent>
     </Dialog>
