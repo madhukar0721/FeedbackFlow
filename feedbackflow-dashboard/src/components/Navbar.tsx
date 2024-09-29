@@ -6,13 +6,15 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { buttonVariants } from "./ui/button";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <nav className="sticky top-0 inset-x-0 z-30 w-full transition-all border-b bg-white/20 backdrop-blur-md">
       <div className="w-full max-w-screen-xl px-2.5 lg:px-20 relative mx-auto ">
         <div className="flex h-24 items-center justify-between ">
-          <h1>LOGO</h1>
+          
+          <Link href={"/dashboard"}><h1>LOGO</h1></Link>
           <div>
             <SignedOut>
                     <SignUpButton>

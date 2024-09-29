@@ -1,3 +1,4 @@
+import CopyBtn from "@/components/copy-btn";
 import { Copy } from "lucide-react";
 
 const Page = ({

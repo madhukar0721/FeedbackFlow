@@ -20,9 +20,8 @@ const NewProjBtn = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>
-          {" "}
-          <Plus className="h-4 w-4 mr-1" /> Create Project
+        <Button className="rounded-full">
+          <Plus className="h-4 w-4" />
         </Button>
       </DialogTrigger>
       <DialogContent>
@@ -36,21 +35,33 @@ const NewProjBtn = () => {
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-2">
               <Label htmlFor="name">Project Name</Label>
-              <Input name="name" id="name" type="text" placeholder="Project Name" />
+              <Input
+                name="name"
+                id="name"
+                type="text"
+                placeholder="Project Name"
+              />
             </div>
             <div className="flex flex-col gap-2">
               <Label htmlFor="url">URL</Label>
-              <Input name="url" id="url" type="text" placeholder="https://example.com/" />
+              <Input
+                name="url"
+                id="url"
+                type="text"
+                placeholder="https://example.com/"
+              />
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <Label htmlFor="description">Description</Label>
-            <Textarea name="description" id="description" placeholder="Description(Optional)" />
+            <Textarea
+              name="description"
+              id="description"
+              placeholder="Description(Optional)"
+            />
           </div>
-        
-           
-         <SubmitButton />
-      
+
+          <SubmitButton />
         </form>
       </DialogContent>
     </Dialog>
