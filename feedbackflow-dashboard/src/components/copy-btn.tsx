@@ -1,11 +1,11 @@
 "use client";
-import { Clipboard } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Clipboard } from "lucide-react";
 
 const CopyBtn = ({ text }: { text: string }) => {
   const copyToClipboard = (text: string) => {

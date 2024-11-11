@@ -1,5 +1,14 @@
-import { pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
+import { integer, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
+
+
+// columns.helpers.ts
+const timestamps = {
+  updated_at: timestamp('updated_at'),
+  created_at: timestamp('created_at').defaultNow().notNull(),
+  deleted_at: timestamp('deleted_at'),
+}
+
 
 export const projects = pgTable("projects", {
   id: serial("id").primaryKey(),
@@ -7,6 +16,7 @@ export const projects = pgTable("projects", {
   description: text("description"),
   url: text("url"),
   userId: varchar("user_id"),
+  ...timestamps
 });
 
 
@@ -17,11 +27,12 @@ export const projectRelations = relations(projects, ({ many }) => ({
 
 export const feedbacks = pgTable("feedbacks", {
   id: serial("id").primaryKey(),
-  projectId: varchar("project_id"),
-  feedback: text("feedback"),
+  projectId: integer("project_id"),
   userName: varchar("user_name"),
   userEmail: varchar("user_email"),
   message: text("message"),
+  ratings:integer('ratings'),
+  ...timestamps
 });
 
 
