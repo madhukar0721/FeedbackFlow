@@ -16,7 +16,7 @@ export default defineConfig({
   },
   build:{
     lib:{
-      entry:"./src/index.jsx",
+      entry:"./src/main.jsx",
       name:"my-widget",
       fileName:(format)=>`widget.${format}.js`
     },
