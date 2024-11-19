@@ -9,8 +9,9 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import tailwindStyles from "../index.css?inline";
+import supabase from '../supabaseClient';
 
-export const Widget = () => {
+export const Widget = ({projectId }) => {
   const [rating, setRating] = useState(3);
   const [submitted, setSubmitted] = useState(false);
 
@@ -18,18 +19,23 @@ export const Widget = () => {
     setRating(index + 1);
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const data = {
-      name: form.name.value,
-      email: form.email.value,
-      feedback: form.feedback.value,
-      rating: rating,
+      p_project_id :projectId,
+      p_user_name: form.name.value,
+      p_user_email: form.email.value,
+      p_message: form.feedback.value,
+      p_rating : rating
     };
-    console.log(data);
+    const {data: returnedData , error } = await supabase.rpc(
+      "add_feedback" , data
+    );
+    console.log(error);
     setSubmitted(true);
-  };
+    }
+  
 
   return (
     <>
@@ -102,6 +108,7 @@ export const Widget = () => {
 </>
   );
 };
+
 
 function StarIcons(props) {
   return (
