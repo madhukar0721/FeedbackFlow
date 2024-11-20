@@ -14,12 +14,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  build:{
-    lib:{
-      entry:"./src/main.jsx",
-      name:"my-widget",
-      fileName:(format)=>`widget.${format}.js`
+  build: {
+    lib: {
+      entry: "./src/index.jsx",
+      name: "widget",
+      fileName: (format) => `widget.${format}.js`
     },
-    target:"esnext",
+    target: "esnext",
+   
   }
+  
 })
+

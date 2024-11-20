@@ -49,7 +49,7 @@ export const Widget = ({projectId }) => {
           </Button>
         </PopoverTrigger>
         
-        <PopoverContent className=" widget w-full max-w-md rounded-lg p-4 shadow-lg bg-card mr-4">
+        <PopoverContent className=" widget w-full max-w-md rounded-lg p-4 shadow-lg bg-card mr-14">
     <style>{tailwindStyles}</style>
           {submitted ? (
             <div>
