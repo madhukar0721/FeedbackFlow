@@ -8,6 +8,7 @@ import {
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import HeaderMenu from "./header-menu";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
@@ -15,7 +16,11 @@ const Navbar = () => {
       <div className="w-full max-w-screen-xl px-2.5  relative mx-auto ">
         <div className="flex h-24 items-center justify-between ">
           
-          <Link href={"/dashboard"}><h1>LOGO</h1></Link>
+          <Link href={"/"}>
+          
+          <Image className="ml-10" src={"/logo.png"} alt={"logo"} width={100} height={100}></Image>
+          
+         </Link>
           <div>
             <SignedOut>
                     <SignUpButton>

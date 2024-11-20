@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { ChevronRight, ChevronLeft, ChevronsRight, ChevronsLeft } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
+import React from 'react';
 import Ratings from './ratings';
 
 import {
@@ -15,15 +15,14 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from '@tanstack/react-table'
+} from '@tanstack/react-table';
 
-import { InferSelectModel } from "drizzle-orm";
 import { feedbacks } from "@/db/schema";
+import { InferSelectModel } from "drizzle-orm";
 
 type Feedback = InferSelectModel<typeof feedbacks>;
 
 function Table(props: { data: Feedback[] }) {
-  const rerender = React.useReducer(() => ({}), {})[1]
 
   const columns = React.useMemo<ColumnDef<Feedback>[]>(
     () => [

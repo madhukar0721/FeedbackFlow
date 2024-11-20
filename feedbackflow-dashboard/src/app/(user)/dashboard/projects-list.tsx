@@ -1,14 +1,13 @@
-import { InferSelectModel } from "drizzle-orm";
-import { projects } from "@/db/schema";
+import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { projects } from "@/db/schema";
+import { InferSelectModel } from "drizzle-orm";
 import Link from "next/link";
 
 type Project = InferSelectModel<typeof projects>;
