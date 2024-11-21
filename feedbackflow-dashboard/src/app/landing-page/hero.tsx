@@ -25,7 +25,7 @@ const Hero = () => {
                     <LogIn className="w-4 h-4 mr-2" />
                     Get Started</Button>
                   <Button variant="secondary" asChild>
-                    <Link href="https://github.com">
+                    <Link target="_blank" href="https://github.com/madhukar0721">
                       <Github className="w-4 h-4 mr-2" />
                       GitHub
                     </Link>
@@ -34,8 +34,17 @@ const Hero = () => {
               </SignUpButton>
             </SignedOut>
             <SignedIn>
-              <Button asChild>
+             
+                <div className="flex gap-3">
+                <Button asChild>
                 <Link href="/dashboard">Dashboard</Link></Button>
+                  <Button variant="secondary" asChild>
+                    <Link target="_blank" href="https://github.com/madhukar0721">
+                      <Github className="w-4 h-4 mr-2" />
+                      GitHub
+                    </Link>
+                  </Button>
+                </div>
             </SignedIn>
           </div>
         </div>
