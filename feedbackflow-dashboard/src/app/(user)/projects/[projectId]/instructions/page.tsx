@@ -1,5 +1,4 @@
 import CopyBtn from "@/components/copy-btn";
-import {Button} from "@/components/ui/button"; // Adjust the import path as necessary
 import { ChevronLeft, MoveUpRight } from "lucide-react";
 import Link from "next/link";
 
