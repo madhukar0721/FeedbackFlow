@@ -1,20 +1,13 @@
-
-services:
-  # Define the Node.js service
-  app:
-    container_name: ww
-    image: ww
+services:  
+  feedback:
+    container_name: feedback
+    image: feedback:latest  # Specify the image name
     build:
       context: .  # Build from the current directory
       dockerfile: Dockerfile  # Specify the Dockerfile
     ports:
       - "3000:3000"  # Host:Container port mapping
-    volumes:
-      - .:/app       # Mount the current directory to /app inside the container     
+    restart: always  # Restart the container always
     environment:
-      - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_bmF0aW9uYWwtbWVlcmthdC04OC5jbGVyay5hY2NvdW50cy5kZXYk
-      - CLERK_SECRET_KEY=sk_test_oqz8OuAjBN4vKvF6rDNtX1vuXtQ554EKjMLOljpFHR
-      - DATABASE_URL=postgresql://postgres.hghqhvqateukclocludg:Bpr595Q0S02xnvyV@aws-0-ap-south-1.pooler.supabase.com:6543/postgres
-      - WIDGET_URL=https://feedback-widget-orpin-six.vercel.app
-
-            
+      - NODE_ENV=production
+    
