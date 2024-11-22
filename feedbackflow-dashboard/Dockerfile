@@ -7,7 +7,7 @@ WORKDIR /app
 
 COPY package.json ./
 
-RUN npm update && npm install
+RUN  npm install
 
 
 
@@ -18,23 +18,24 @@ COPY . .
 
 RUN npm run build
 
+
 FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
+
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+
 COPY --from=builder /app/public ./public
 
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/public ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/
 
-RUN cp -r /app/public /app/.next/standalone/
-RUN cp -r /app/.next/static /app/.next/standalone/.next/
 
 
 USER nextjs
@@ -44,5 +45,5 @@ EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME 0.0.0.0
 
-CMD ["node", ".next/standalone/server.js"]
+CMD ["node", "/app/server.js"]
 
