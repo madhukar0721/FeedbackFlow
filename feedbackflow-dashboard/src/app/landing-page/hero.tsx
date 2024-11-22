@@ -19,19 +19,23 @@ const Hero = () => {
           </div>
           <div>
             <SignedOut>
-              <SignUpButton>
-                <div className="flex gap-3">
-                  <Button>
-                    <LogIn className="w-4 h-4 mr-2" />
-                    Get Started</Button>
-                  <Button variant="secondary" asChild>
-                    <Link target="_blank" href="https://github.com/madhukar0721">
-                      <Github className="w-4 h-4 mr-2" />
-                      GitHub
-                    </Link>
-                  </Button>
-                </div>
-              </SignUpButton>
+
+              <div className="flex gap-3">
+                <SignUpButton>
+                  <div className="flex gap-3">
+                    <Button>
+                      <LogIn className="w-4 h-4 mr-2" />
+                      Get Started
+                    </Button>
+                  </div>
+                </SignUpButton>
+                <Button variant="secondary" asChild>
+                  <Link target="_blank" href="https://github.com/madhukar0721">
+                    <Github className="w-4 h-4 mr-2" />
+                    GitHub
+                  </Link>
+                </Button>
+              </div>
             </SignedOut>
             <SignedIn>
              
